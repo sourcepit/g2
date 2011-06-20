@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+   <extension-point id="derivatorFactories" name="EMF Derivator Factories" schema="schema/derivatorFactories.exsd"/>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.sourcepit.org/emfx/derivation/1.0"
+            class="org.sourcepit.emfx.derivation.DerivationPackage"
+            genModel="model/derivation.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.sourcepit.org/emfx/derivation/ecore/1.0"
+            class="org.sourcepit.emfx.derivation.ecore.EcorePackage"
+            genModel="model/derivation.genmodel"/>
+   </extension>
+   
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="org.sourcepit.emfx.derivation.internal.expression.ReconciliationTester"
+            id="org.sourcepit.emfx.expressions.ReconciliationTester"
+            namespace="org.sourcepit.emfx.expressions"
+            properties="isReconcilable"
+            type="org.eclipse.emf.ecore.EObject">
+      </propertyTester>
+   </extension>
+   <extension
+         point="org.sourcepit.emfx.derivation.derivatorFactories">
+      <derivatorFactory
+            class="org.sourcepit.emfx.derivation.ecore.GenericDerivatorFactory">
+      </derivatorFactory>
+   </extension>
+
+</plugin>

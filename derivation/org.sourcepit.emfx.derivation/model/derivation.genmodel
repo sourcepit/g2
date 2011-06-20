@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.sourcepit.emfx.derivation/gen"
+    editDirectory="/org.sourcepit.emfx.derivation.ui/gen" modelPluginID="org.sourcepit.emfx.derivation"
+    templateDirectory="" redirection="" forceOverwrite="true" modelName="Derivation"
+    editPluginClass="org.sourcepit.emfx.derivation.ui.DerivationUIPlugin" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    editPluginID="org.sourcepit.emfx.derivation.ui" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
+  <foreignModel>derivation.ecore</foreignModel>
+  <genPackages prefix="Derivation" basePackage="org.sourcepit.emfx" disposableProviderFactory="true"
+      ecorePackage="derivation.ecore#/">
+    <genClasses image="false" ecoreClass="derivation.ecore#//DerivatorConfiguration">
+      <genOperations ecoreOperation="derivation.ecore#//DerivatorConfiguration/getDerivatorId"/>
+      <genOperations ecoreOperation="derivation.ecore#//DerivatorConfiguration/getOrigin"/>
+    </genClasses>
+    <genClasses ecoreClass="derivation.ecore#//ReconcilerConfiguration">
+      <genOperations ecoreOperation="derivation.ecore#//ReconcilerConfiguration/getReconcilerId"/>
+    </genClasses>
+    <nestedGenPackages prefix="Ecore" disposableProviderFactory="true" ecorePackage="derivation.ecore#//ecore">
+      <genClasses ecoreClass="derivation.ecore#//ecore/EcoreDerivatorConfiguration">
+        <genFeatures createChild="false" propertyCategory="All" ecoreFeature="ecore:EAttribute derivation.ecore#//ecore/EcoreDerivatorConfiguration/derivatorId"/>
+        <genFeatures notify="false" createChild="false" propertyCategory="Origin"
+            propertySortChoices="true" ecoreFeature="ecore:EReference derivation.ecore#//ecore/EcoreDerivatorConfiguration/origin"/>
+        <genFeatures notify="false" createChild="false" propertyCategory="Origin"
+            propertySortChoices="true" ecoreFeature="ecore:EReference derivation.ecore#//ecore/EcoreDerivatorConfiguration/originRootType"/>
+        <genFeatures createChild="false" propertyCategory="EClassifiers" ecoreFeature="ecore:EAttribute derivation.ecore#//ecore/EcoreDerivatorConfiguration/eClassifierNamePrefix"/>
+        <genFeatures createChild="false" propertyCategory="EClassifiers" ecoreFeature="ecore:EAttribute derivation.ecore#//ecore/EcoreDerivatorConfiguration/eStructuralFeatureNamePrefix"/>
+        <genFeatures createChild="false" propertyCategory="EClassifiers" ecoreFeature="ecore:EAttribute derivation.ecore#//ecore/EcoreDerivatorConfiguration/createOriginEReferences"/>
+        <genFeatures createChild="false" propertyCategory="EPackage" ecoreFeature="ecore:EAttribute derivation.ecore#//ecore/EcoreDerivatorConfiguration/ePackageName"/>
+        <genFeatures createChild="false" propertyCategory="EPackage" ecoreFeature="ecore:EAttribute derivation.ecore#//ecore/EcoreDerivatorConfiguration/ePackageNsPrefix"/>
+        <genFeatures createChild="false" propertyCategory="EPackage" ecoreFeature="ecore:EAttribute derivation.ecore#//ecore/EcoreDerivatorConfiguration/ePackageNsURI"/>
+        <genFeatures createChild="false" propertyCategory="All" ecoreFeature="ecore:EAttribute derivation.ecore#//ecore/EcoreDerivatorConfiguration/createBaseType"/>
+        <genFeatures createChild="false" propertyCategory="All" ecoreFeature="ecore:EAttribute derivation.ecore#//ecore/EcoreDerivatorConfiguration/createRootType"/>
+        <genFeatures createChild="false" propertyCategory="All" ecoreFeature="ecore:EAttribute derivation.ecore#//ecore/EcoreDerivatorConfiguration/rootTypeName"/>
+        <genFeatures createChild="false" propertyCategory="All" ecoreFeature="ecore:EAttribute derivation.ecore#//ecore/EcoreDerivatorConfiguration/baseTypeName"/>
+        <genFeatures createChild="false" propertyCategory="EClassifiers" ecoreFeature="ecore:EAttribute derivation.ecore#//ecore/EcoreDerivatorConfiguration/originEReferenceNamePrefix"/>
+        <genFeatures notify="false" createChild="false" propertyCategory="EClassifiers"
+            propertySortChoices="true" ecoreFeature="ecore:EReference derivation.ecore#//ecore/EcoreDerivatorConfiguration/excludeEReferences"/>
+        <genFeatures createChild="false" propertyCategory="All" ecoreFeature="ecore:EAttribute derivation.ecore#//ecore/EcoreDerivatorConfiguration/deriveEDataTypes"/>
+        <genFeatures createChild="false" propertyCategory="EClassifiers" ecoreFeature="ecore:EAttribute derivation.ecore#//ecore/EcoreDerivatorConfiguration/deriveEAttributes"/>
+        <genFeatures createChild="false" propertyCategory="EClassifiers" ecoreFeature="ecore:EAttribute derivation.ecore#//ecore/EcoreDerivatorConfiguration/deriveContainmentEReferences"/>
+        <genFeatures createChild="false" propertyCategory="EClassifiers" ecoreFeature="ecore:EAttribute derivation.ecore#//ecore/EcoreDerivatorConfiguration/deriveEReferences"/>
+        <genFeatures createChild="false" propertyCategory="EClassifiers" ecoreFeature="ecore:EAttribute derivation.ecore#//ecore/EcoreDerivatorConfiguration/eDataTypesAsEClass"/>
+        <genFeatures notify="false" createChild="false" propertyCategory="All" propertySortChoices="true"
+            ecoreFeature="ecore:EReference derivation.ecore#//ecore/EcoreDerivatorConfiguration/usedEPackages"/>
+        <genOperations ecoreOperation="derivation.ecore#//ecore/EcoreDerivatorConfiguration/getEClassifierName">
+          <genParameters ecoreParameter="derivation.ecore#//ecore/EcoreDerivatorConfiguration/getEClassifierName/originalName"/>
+        </genOperations>
+        <genOperations ecoreOperation="derivation.ecore#//ecore/EcoreDerivatorConfiguration/getEStructuralFeatureName">
+          <genParameters ecoreParameter="derivation.ecore#//ecore/EcoreDerivatorConfiguration/getEStructuralFeatureName/originalName"/>
+        </genOperations>
+        <genOperations ecoreOperation="derivation.ecore#//ecore/EcoreDerivatorConfiguration/getOriginEReferenceName">
+          <genParameters ecoreParameter="derivation.ecore#//ecore/EcoreDerivatorConfiguration/getOriginEReferenceName/originalName"/>
+        </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="derivation.ecore#//ecore/EcoreReconcilerConfiguration">
+        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute derivation.ecore#//ecore/EcoreReconcilerConfiguration/reconcilerId"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference derivation.ecore#//ecore/EcoreReconcilerConfiguration/derivatorConfiguration"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

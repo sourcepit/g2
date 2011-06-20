@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http://www.sourcepit.org/emfx/derivation/1.0"
+            class="org.sourcepit.emfx.derivation.provider.DerivationItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http://www.sourcepit.org/emfx/derivation/ecore/1.0"
+            class="org.sourcepit.emfx.derivation.ecore.provider.EcoreItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+
+<extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="org.sourcepit.emfx.derivation.ui.ReconcileCommand"
+            name="Reconcile">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.sourcepit.emfx.derivation.ui.internal.handler.ReconcileHandler"
+            commandId="org.sourcepit.emfx.derivation.ui.ReconcileCommand">
+      </handler>
+   </extension>   
+	<extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any">
+         <command
+               commandId="org.sourcepit.emfx.derivation.ui.ReconcileCommand"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+               <iterate
+                     ifEmpty="false"
+                     operator="or">
+                  <or>
+                     <test
+                           forcePluginActivation="true"
+                           property="org.sourcepit.emfx.expressions.isReconcilable">
+                     </test>
+                  </or>
+               </iterate>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+ <extension
+       point="org.eclipse.ui.newWizards">
+    <wizard
+          category="org.eclipse.emf.codegen.ecore.ui.wizardCategory"
+          class="org.sourcepit.emfx.derivation.ui.internal.wizard.NewDerivationWizard"
+          hasPages="true"
+          icon="icons/full/ctool16/NewEcore.gif"
+          id="org.sourcepit.emfx.derivation.ui.wizard1"
+          name="%newDerivationWizardName"
+          project="true">
+       <selection
+             class="org.eclipse.core.resources.IFile"
+             name="*.ecore">
+       </selection>
+    </wizard>
+ </extension>
+</plugin>

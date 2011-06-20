@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_VcGeIHjeEeCtavrHz_smew" type="EcoreTools" name="derivation.ecorediag" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_VcMkwHjeEeCtavrHz_smew" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_VcNL0HjeEeCtavrHz_smew" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_VcNL0XjeEeCtavrHz_smew" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_VcffsHjeEeCtavrHz_smew" type="2001">
+        <element xmi:type="ecore:EAttribute" href="derivation.ecore#//ecore/EcoreDerivatorConfiguration/derivatorId"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_VcffsXjeEeCtavrHz_smew"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_VcgGwHjeEeCtavrHz_smew" type="2001">
+        <element xmi:type="ecore:EAttribute" href="derivation.ecore#//ecore/EcoreDerivatorConfiguration/eClassifierNamePrefix"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_VcgGwXjeEeCtavrHz_smew"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_VcgGwnjeEeCtavrHz_smew" type="2001">
+        <element xmi:type="ecore:EAttribute" href="derivation.ecore#//ecore/EcoreDerivatorConfiguration/eStructuralFeatureNamePrefix"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_VcgGw3jeEeCtavrHz_smew"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Vcgt0HjeEeCtavrHz_smew" type="2001">
+        <element xmi:type="ecore:EAttribute" href="derivation.ecore#//ecore/EcoreDerivatorConfiguration/createOriginEReferences"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Vcgt0XjeEeCtavrHz_smew"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Vcgt0njeEeCtavrHz_smew" type="2001">
+        <element xmi:type="ecore:EAttribute" href="derivation.ecore#//ecore/EcoreDerivatorConfiguration/ePackageName"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Vcgt03jeEeCtavrHz_smew"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Vcgt1HjeEeCtavrHz_smew" type="2001">
+        <element xmi:type="ecore:EAttribute" href="derivation.ecore#//ecore/EcoreDerivatorConfiguration/ePackageNsPrefix"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_VchU4HjeEeCtavrHz_smew"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_VchU4XjeEeCtavrHz_smew" type="2001">
+        <element xmi:type="ecore:EAttribute" href="derivation.ecore#//ecore/EcoreDerivatorConfiguration/ePackageNsURI"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_VchU4njeEeCtavrHz_smew"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_VchU43jeEeCtavrHz_smew" type="2001">
+        <element xmi:type="ecore:EAttribute" href="derivation.ecore#//ecore/EcoreDerivatorConfiguration/createBaseType"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_VchU5HjeEeCtavrHz_smew"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Vch78HjeEeCtavrHz_smew" type="2001">
+        <element xmi:type="ecore:EAttribute" href="derivation.ecore#//ecore/EcoreDerivatorConfiguration/createRootType"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Vch78XjeEeCtavrHz_smew"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Vch78njeEeCtavrHz_smew" type="2001">
+        <element xmi:type="ecore:EAttribute" href="derivation.ecore#//ecore/EcoreDerivatorConfiguration/rootTypeName"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Vch783jeEeCtavrHz_smew"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_VcijAHjeEeCtavrHz_smew" type="2001">
+        <element xmi:type="ecore:EAttribute" href="derivation.ecore#//ecore/EcoreDerivatorConfiguration/baseTypeName"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_VcijAXjeEeCtavrHz_smew"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_VcijAnjeEeCtavrHz_smew" type="2001">
+        <element xmi:type="ecore:EAttribute" href="derivation.ecore#//ecore/EcoreDerivatorConfiguration/originEReferenceNamePrefix"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_VcijA3jeEeCtavrHz_smew"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_VcjKEHjeEeCtavrHz_smew" type="2001">
+        <element xmi:type="ecore:EAttribute" href="derivation.ecore#//ecore/EcoreDerivatorConfiguration/deriveEDataTypes"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_VcjKEXjeEeCtavrHz_smew"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_VcjKEnjeEeCtavrHz_smew" type="2001">
+        <element xmi:type="ecore:EAttribute" href="derivation.ecore#//ecore/EcoreDerivatorConfiguration/deriveEAttributes"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_VcjKE3jeEeCtavrHz_smew"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_VcjKFHjeEeCtavrHz_smew" type="2001">
+        <element xmi:type="ecore:EAttribute" href="derivation.ecore#//ecore/EcoreDerivatorConfiguration/deriveContainmentEReferences"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_VcjKFXjeEeCtavrHz_smew"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_VcjxIHjeEeCtavrHz_smew" type="2001">
+        <element xmi:type="ecore:EAttribute" href="derivation.ecore#//ecore/EcoreDerivatorConfiguration/deriveEReferences"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_VcjxIXjeEeCtavrHz_smew"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_VcjxInjeEeCtavrHz_smew" type="2001">
+        <element xmi:type="ecore:EAttribute" href="derivation.ecore#//ecore/EcoreDerivatorConfiguration/eDataTypesAsEClass"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_VcjxI3jeEeCtavrHz_smew"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_VcNL0njeEeCtavrHz_smew"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_VcNL03jeEeCtavrHz_smew"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_VcNL1HjeEeCtavrHz_smew"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_VcNy4HjeEeCtavrHz_smew" type="5002">
+      <children xmi:type="notation:Node" xmi:id="_VckYMHjeEeCtavrHz_smew" type="2002">
+        <element xmi:type="ecore:EOperation" href="derivation.ecore#//ecore/EcoreDerivatorConfiguration/getEClassifierName"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_VckYMXjeEeCtavrHz_smew"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_VckYMnjeEeCtavrHz_smew" type="2002">
+        <element xmi:type="ecore:EOperation" href="derivation.ecore#//ecore/EcoreDerivatorConfiguration/getEStructuralFeatureName"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_VckYM3jeEeCtavrHz_smew"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Vck_QHjeEeCtavrHz_smew" type="2002">
+        <element xmi:type="ecore:EOperation" href="derivation.ecore#//ecore/EcoreDerivatorConfiguration/getOriginEReferenceName"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Vck_QXjeEeCtavrHz_smew"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_VcNy4XjeEeCtavrHz_smew"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_VcNy4njeEeCtavrHz_smew"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_VcNy43jeEeCtavrHz_smew"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_VcMkwXjeEeCtavrHz_smew" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="derivation.ecore#//ecore/EcoreDerivatorConfiguration"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VcMkwnjeEeCtavrHz_smew"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_Vck_QnjeEeCtavrHz_smew" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_VclmUHjeEeCtavrHz_smew" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_VclmUXjeEeCtavrHz_smew" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_VcmNZHjeEeCtavrHz_smew" type="2001">
+        <element xmi:type="ecore:EAttribute" href="derivation.ecore#//ecore/EcoreReconcilerConfiguration/reconcilerId"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_VcmNZXjeEeCtavrHz_smew"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_VclmUnjeEeCtavrHz_smew"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_VclmU3jeEeCtavrHz_smew"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_VclmVHjeEeCtavrHz_smew"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_VcmNYHjeEeCtavrHz_smew" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_VcmNYXjeEeCtavrHz_smew"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_VcmNYnjeEeCtavrHz_smew"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_VcmNY3jeEeCtavrHz_smew"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_Vck_Q3jeEeCtavrHz_smew" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="derivation.ecore#//ecore/EcoreReconcilerConfiguration"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Vck_RHjeEeCtavrHz_smew" x="351"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_VcGeIXjeEeCtavrHz_smew"/>
+  <element xmi:type="ecore:EPackage" href="derivation.ecore#//ecore"/>
+</notation:Diagram>
