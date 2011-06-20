@@ -1,0 +1,182 @@
+<%@ jet package="org.sourcepit.emfx.codegen.ecore.templates.generator" class="GeneratorAdapterFactory" imports="org.eclipse.emf.codegen.ecore.genmodel.* org.sourcepit.emfx.codegen.ecore.genmodel2.*"%>
+<%/**
+ * <copyright>
+ *
+ * Copyright (c) Tim Baumgartner, 2009
+ *
+ * </copyright>
+ */%>
+<%final GenPackage2 genPackage     = (GenPackage2) argument;%>
+<%final GenModel2   genModel       = genPackage.getGenModel();%>
+<%final String qualifiedAdapterFactoryName = genPackage.getUtilitiesPackageName() + '.' + genPackage.getAdapterFactoryClassName();%>
+<%final String importedAdapterFactory = genModel.getImportedName(qualifiedAdapterFactoryName);%>
+<%final String importedGenerator = genModel.getImportedName("org.eclipse.emf.codegen.ecore.generator.Generator");%>
+package <%=genPackage.getGeneratorPackageName()%>;
+
+<%genModel.markImportLocation(stringBuffer);%>
+
+/**
+ * <!-- begin-user-doc -->
+ * <!-- end-user-doc -->
+ * @generated org.eclipse.emf.codegen.ecore.generator.AbstractGeneratorAdapter
+ */
+public class <%=genPackage.getGeneratorAdapterFactoryClassName()%> extends <%=importedAdapterFactory%> implements <%=genModel.getImportedName("org.eclipse.emf.codegen.ecore.generator.GeneratorAdapterFactory")%>
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String MERGE_RULES_PATH_NAME = "emf-merge.xml";
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected <%=importedGenerator%> generator;
+
+<%for (GenClass genClass : genPackage.getGenClasses()) {%>
+<%GenClass2 genClass2 = (GenClass2) genClass;%>
+<%if (genClass2.isGenerateGenerator()) {%>
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected <%=genPackage.getGeneratorAdapterBaseClassName()%> <%=genClass2.getGeneratorAdapterField()%>;
+
+<%}%>
+<%}%>
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public <%=genPackage.getGeneratorAdapterFactoryClassName()%>()
+	{
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGenerator(<%=importedGenerator%> generator)
+	{
+		this.generator = generator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public <%=importedGenerator%> getGenerator()
+	{
+		return generator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void initialize(Object input)
+	{
+		initialize((<%=genModel.getImportedName("org.eclipse.emf.ecore.EObject")%>) input);
+	}
+	
+		/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void initialize(<%=genModel.getImportedName("org.eclipse.emf.ecore.EObject")%> input)
+	{
+		<%=importedGenerator%>.Options options = generator.getOptions();
+		
+		<%=genModel.getImportedName("org.eclipse.emf.ecore.resource.Resource")%> resource = input.eResource();
+		options.resourceSet = resource != null ? resource.getResourceSet() : null;
+		options.mergerFacadeHelperClass = "org.eclipse.emf.codegen.merge.java.facade.ast.ASTFacadeHelper";
+		
+		initializeMergeRules(input, options);
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */	
+	protected void initializeMergeRules(<%=genModel.getImportedName("org.eclipse.emf.ecore.EObject")%> input, Generator.Options options) {
+		String[] templatePath = getTemplatePath();
+		options.mergeRulesURI = <%=genModel.getImportedName("org.eclipse.emf.codegen.jet.JETCompiler")%>.find(templatePath, MERGE_RULES_PATH_NAME);
+		options.mergerFacadeHelperClass = "org.eclipse.emf.codegen.merge.java.facade.ast.ASTFacadeHelper";
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected String[] getTemplatePath()
+	{
+		String[] path = new String[1];
+		path[0] = <%=genModel.getImportedName(genModel.getGeneratorPluginClass())%>.INSTANCE.getBaseURL().toString() + "templates";
+		return path;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isFactoryForType(Object type)
+	{
+		return type == <%=genModel.getImportedName("org.eclipse.emf.codegen.ecore.generator.GeneratorAdapter")%>.class;
+	}
+
+<%for (GenClass genClass : genPackage.getGenClasses()) {%>
+<%GenClass2 genClass2 = (GenClass2) genClass;%>
+<%if (genClass2.isGenerateGenerator()) {%>
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public <%=genPackage.getGeneratorAdapterBaseClassName()%> create<%=genClass.getName()%>Adapter()
+	{
+		if (<%=genClass2.getGeneratorAdapterField()%> == null)
+		{
+			<%=genClass2.getGeneratorAdapterField()%> = new <%=genClass2.getGeneratorAdapterClassName()%>(this);
+		}
+		return <%=genClass2.getGeneratorAdapterField()%>;
+	}
+
+<%}%>
+<%}%>
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void dispose()
+	{
+<%for (GenClass genClass : genPackage.getGenClasses()) {%>
+<%GenClass2 genClass2 = (GenClass2) genClass;%>
+<%if (genClass2.isGenerateGenerator()) {%>
+		if (<%=genClass2.getGeneratorAdapterField()%> != null)
+		{
+			<%=genClass2.getGeneratorAdapterField()%>.dispose();
+		}
+<%}%>
+<%}%>
+	}
+}
+
+<%genModel.emitSortedImports();%>

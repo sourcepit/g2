@@ -1,0 +1,82 @@
+<%@ jet package="org.sourcepit.emfx.codegen.ecore.templates.generator" imports="org.eclipse.emf.codegen.ecore.genmodel.* org.sourcepit.emfx.codegen.ecore.genmodel2.*" class="PluginXML" version="$Id: plugin.xmljet,v 1.20 2008/08/09 14:16:12 emerks Exp $" %>
+<%
+/**
+ * <copyright>
+ *
+ * Copyright (c) 2002-2005 IBM Corporation and others.
+ * All rights reserved.   This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors: 
+ *   IBM - Initial API and implementation
+ *
+ * </copyright>
+ */
+%>
+<%GenModel2 genModel = (GenModel2)argument;%>
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<%@ include file="../Header.xmljetinc"%>
+
+<%if (genModel.isBundleManifest()) {%>
+<plugin>
+<%} else {%>
+<plugin
+      name="%pluginName"
+      id="<%=genModel.getGeneratorPluginID()%>"
+      version="1.0.0"
+      provider-name="%providerName"
+      class="<%=genModel.getQualifiedGeneratorPluginClassName()%>$Implementation">
+
+   <requires>
+  <%for (String pluginID : genModel.getGeneratorRequiredPlugins()) {%>
+      <import plugin="<%=pluginID%>"<%if (!pluginID.startsWith("org.eclipse.core.runtime")) {%> export="true"<%}%>/>
+  <%}%>
+   </requires>
+
+   <runtime>
+  <%if (genModel.isRuntimeJar()) {%>
+      <library name="<%=genModel.getGeneratorPluginID()%>.jar">
+  <%} else {%>
+      <library name=".">
+  <%}%>
+         <export name="*"/>
+      </library>
+   </runtime>
+<%}%>
+<%for (GenPackage genPackage : genModel.getAllGenPackagesWithClassifiers()) {%>
+  <%if (genPackage instanceof GenPackage2 &&!genPackage.getGenClasses().isEmpty()) {%>
+   <extension
+         point="org.eclipse.emf.codegen.ecore.generatorAdapters">
+      <adapterFactory
+            class="<%=((GenPackage2)genPackage).getQualifiedGeneratorAdapterFactoryClassName()%>"
+            modelPackage="<%=genPackage.getNSURI()%>">
+      </adapterFactory>
+   </extension>
+  <%}%>
+<%}%>
+<%for (GenPackage genPackage : genModel.getAllGenPackagesWithClassifiers()) {%>
+  <%if (genPackage instanceof GenPackage2 &&!genPackage.getGenClasses().isEmpty()) {%>
+   <extension point="org.eclipse.core.expressions.definitions">
+      <definition id="<%=((GenPackage2)genPackage).getGeneratableModelElementsExpressionId()%>">
+         <iterate
+            isEmpty="false"
+            operator="or">
+               <or>
+<%for (GenClass genClass : genPackage.getGenClasses()) {%>
+  <%if (genClass instanceof GenClass2 && ((GenClass2)genClass).canGenerateGenerator()) {%>                 
+                  <instanceof
+                     value="<%=genClass.getQualifiedInterfaceName()%>">
+                  </instanceof>
+  <%}%>                  
+<%}%>
+               </or>             
+            </iterate>
+      </definition>
+   </extension>   
+  <%}%>
+<%}%>
+</plugin>

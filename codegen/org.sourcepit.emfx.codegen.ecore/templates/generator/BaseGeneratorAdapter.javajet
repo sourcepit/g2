@@ -1,0 +1,61 @@
+<%@ jet package="org.sourcepit.emfx.codegen.ecore.templates.generator" class="BaseGeneratorAdapter" imports="org.sourcepit.emfx.codegen.ecore.genmodel2.*"%>
+<%/**
+ * <copyright>
+ *
+ * Copyright (c) Tim Baumgartner, 2009
+ *
+ * </copyright>
+ */%>
+<%GenPackage2 genPackage     = (GenPackage2) argument;%>
+<%GenModel2   genModel       = genPackage.getGenModel();%>
+package <%=genPackage.getGeneratorPackageName()%>;
+
+<%genModel.markImportLocation(stringBuffer);%>
+
+/**
+ * <!-- begin-user-doc -->
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public abstract class <%=genPackage.getGeneratorAdapterBaseClassName()%> extends <%=genModel.getImportedName("org.eclipse.emf.codegen.ecore.generator.AbstractGeneratorAdapter")%>
+{
+<%for (String projectType : genModel.getGeneratorProjectTypes()) {%>
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String <%=genModel.getGeneratorProjectTypeConstantName(projectType)%> = "<%=genPackage.getQuallifiedGenerateProjectTypeId(projectType)%>";
+
+<%}%>
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public <%=genPackage.getGeneratorAdapterBaseClassName()%>(<%=genModel.getImportedName("org.eclipse.emf.codegen.ecore.generator.GeneratorAdapterFactory")%> generatorAdapterFactory)
+	{
+		super(generatorAdapterFactory);
+	}
+	
+	@Override
+	protected void addBaseTemplatePathEntries(<%=genModel.getImportedName("java.util.List")%><<%=genModel.getImportedName("java.lang.String")%>> templatePath) {
+		templatePath.add(<%=genModel.getImportedName(genModel.getGeneratorPluginClass())%>.INSTANCE.getBaseURL().toString()
+				+ "templates");
+		super.addBaseTemplatePathEntries(templatePath);
+	}
+	
+	@Override
+	protected void addClasspathEntries(<%=genModel.getImportedName("org.eclipse.emf.codegen.jet.JETEmitter")%> jetEmitter)
+			throws <%=genModel.getImportedName("org.eclipse.emf.codegen.jet.JETException")%> {
+		jetEmitter.addVariable("EMF_CODEGEN", "org.eclipse.emf.codegen");
+		jetEmitter.addVariable("EMF_CODEGEN_ECORE",
+				"org.eclipse.emf.codegen.ecore");
+		jetEmitter.addVariable("EMF_COMMON", "org.eclipse.emf.common");
+		jetEmitter.addVariable("EMF_ECORE", "org.eclipse.emf.ecore");
+		
+		jetEmitter.addVariable("GENERATOR", "<%=genModel.getGeneratorPluginID()%>");
+		super.addClasspathEntries(jetEmitter);
+	}
+}
+<%genModel.emitSortedImports();%>

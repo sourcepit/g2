@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.sourcepit.emfx.codegen.ecore/src"
+    editDirectory="/org.sourcepit.emfx.codegen.ecore.ui/src" editorDirectory="/org.sourcepit.emfx.codegen.ecore.editor/src"
+    modelPluginID="org.sourcepit.emfx.codegen.ecore" modelName="GenModel2" modelPluginClass="org.sourcepit.emfx.codegen.ecore.CodeGen2EcorePlugin"
+    editPluginClass="org.sourcepit.emfx.codegen.ecore.ui.GenModel2UiPlugin" editorPluginClass="org.sourcepit.emfx.codegen.ecore.genmodel2.editor.GenModel2EditorPlugin"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    providerRootExtendsClass="" editPluginID="org.sourcepit.emfx.codegen.ecore.ui"
+    editorPluginID="org.sourcepit.emfx.codegen.ecore.editor" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/plugin/org.eclipse.emf.codegen.ecore/model/GenModel.genmodel#//genmodel"
+    interfaceNamePattern="">
+  <foreignModel>GenModel2.ecore</foreignModel>
+  <genPackages prefix="GenModel2" basePackage="org.sourcepit.emfx.codegen.ecore" disposableProviderFactory="true"
+      extensibleProviderFactory="true" ecorePackage="GenModel2.ecore#/">
+    <genClasses ecoreClass="GenModel2.ecore#//GenModel2">
+      <genFeatures createChild="false" propertyCategory="Generator" ecoreFeature="ecore:EAttribute GenModel2.ecore#//GenModel2/generatorDirectory"/>
+      <genFeatures createChild="false" propertyCategory="Generator" ecoreFeature="ecore:EAttribute GenModel2.ecore#//GenModel2/generatorPluginClass"/>
+      <genFeatures createChild="false" propertyCategory="Generator" ecoreFeature="ecore:EAttribute GenModel2.ecore#//GenModel2/generatorPluginID"/>
+      <genFeatures createChild="false" propertyCategory="Generator" ecoreFeature="ecore:EAttribute GenModel2.ecore#//GenModel2/generatorPluginVariables"/>
+      <genFeatures createChild="false" propertyCategory="Generator UI" ecoreFeature="ecore:EAttribute GenModel2.ecore#//GenModel2/generatorUIDirectory"/>
+      <genFeatures createChild="false" propertyCategory="Generator UI" ecoreFeature="ecore:EAttribute GenModel2.ecore#//GenModel2/generatorUIPluginClass"/>
+      <genFeatures createChild="false" propertyCategory="Generator UI" ecoreFeature="ecore:EAttribute GenModel2.ecore#//GenModel2/generatorUIPluginID"/>
+      <genFeatures createChild="false" propertyCategory="Generator UI" ecoreFeature="ecore:EAttribute GenModel2.ecore#//GenModel2/generatorUIPluginVariables"/>
+      <genFeatures createChild="false" propertyCategory="Generator" ecoreFeature="ecore:EAttribute GenModel2.ecore#//GenModel2/generatorProjectTypes"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="GenModel2.ecore#//GenBase2">
+      <genFeatures createChild="false" propertyCategory="Generator" ecoreFeature="ecore:EAttribute GenModel2.ecore#//GenBase2/generateGenerator"/>
+    </genClasses>
+    <genClasses ecoreClass="GenModel2.ecore#//GenClass2"/>
+    <genClasses ecoreClass="GenModel2.ecore#//GenPackage2">
+      <genFeatures createChild="false" propertyCategory="Generator" ecoreFeature="ecore:EAttribute GenModel2.ecore#//GenPackage2/generatorPackageSuffix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenModel2.ecore#//GenPackage2/generatorUIPackageSuffix"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

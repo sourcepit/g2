@@ -1,0 +1,84 @@
+<%@ jet package="org.sourcepit.emfx.codegen.ecore.templates.generator.ui" imports="org.eclipse.emf.codegen.ecore.genmodel.* org.sourcepit.emfx.codegen.ecore.genmodel2.*" class="GeneratorHandler" version="$Id: Plugin.javajet,v 1.10 2008/12/13 15:53:17 emerks Exp $" %>
+<%
+/**
+ * <copyright>
+ *
+ * Copyright (c) 2002-2004 IBM Corporation and others.
+ * All rights reserved.   This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *   IBM - Initial API and implementation
+ *
+ * </copyright>
+ */
+%>
+<%final GenPackage2 genPackage     = (GenPackage2) argument;%>
+<%final GenModel2   genModel       = genPackage.getGenModel();%>
+<%@ include file="../Header.javajetinc"%>
+package <%=genPackage.getGeneratorHandlerPackageName()%>;
+
+<%genModel.markImportLocation(stringBuffer);%>
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.core.commands.ExecutionEvent;
+/**
+ * <!-- begin-user-doc -->
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public class <%=genPackage.getGeneratorHandlerClassName()%> extends <%=genModel.getImportedName("org.sourcepit.emfx.codegen.ecore.ui.handlers.AbstractGeneratorHandler")%> {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected final static String PROJECT_TYPE_PARAMETER_ID = "<%=genPackage.getGenerateProjectTypesCommandParameterId()%>";
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected boolean isGeneratorInput(Object selected) {
+<%for (GenClass genClass : genPackage.getGenClasses()) {%>
+  <%if (genClass instanceof GenClass2 && ((GenClass2)genClass).canGenerateGenerator()) {%>
+		if (selected instanceof <%=genModel.getImportedName(genClass.getQualifiedInterfaceName())%>) {
+			return true;                   
+		}
+  <%}%>                  
+<%}%>  	
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected List<Object> getProjectTypes(ExecutionEvent event,
+			List<Object> generatorInput) {
+		List<Object> projectTypes = new ArrayList<Object>();
+		String rawProjectTypes = event.getParameter(PROJECT_TYPE_PARAMETER_ID);
+		if (rawProjectTypes != null)
+		{
+			for (String projectType : rawProjectTypes.split(" "))
+			{
+				projectTypes.add(projectType);
+			}
+		}
+		else
+		{
+			projectTypes.add(null);
+		}
+		return projectTypes;
+	}
+}
+<%genModel.emitSortedImports();%>

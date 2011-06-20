@@ -1,0 +1,112 @@
+<%@ jet package="org.sourcepit.emfx.codegen.ecore.templates.generator.ui" imports="org.eclipse.emf.codegen.ecore.genmodel.* org.sourcepit.emfx.codegen.ecore.genmodel2.*" class="PluginXML" version="$Id: plugin.xmljet,v 1.28 2010/03/11 02:31:37 khussey Exp $" %>
+<%
+/**
+ * <copyright>
+ *
+ * Copyright (c) 2002-2010 IBM Corporation and others.
+ * All rights reserved.   This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors: 
+ *   IBM - Initial API and implementation
+ *
+ * </copyright>
+ */
+%>
+<%GenModel2 genModel = (GenModel2)argument;%>
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<%@ include file="../Header.xmljetinc"%>
+
+<%if (genModel.isBundleManifest()) {%>
+<plugin>
+<%} else {%>
+<plugin
+      name="%pluginName"
+      id="<%=genModel.getGeneratorUIPluginID()%>"
+      version="1.0.0"
+      provider-name="%providerName"
+      class="<%=genModel.getQualifiedEditorPluginClassName()%>$Implementation">
+
+   <requires>
+  <%for (String pluginID : genModel.getGeneratorUIRequiredPlugins()) { %>
+      <import plugin="<%=pluginID%>"<%if (!pluginID.startsWith("org.eclipse.core.runtime")) {%> export="true"<%}%>/>
+  <%}%>
+   </requires>
+
+   <runtime>
+  <%if (genModel.isRuntimeJar()) {%>
+      <library name="<%=genModel.getGeneratorUIPluginID()%>.jar">
+  <%} else {%>
+      <library name=".">
+  <%}%>
+         <export name="*"/>
+      </library>
+   </runtime>
+<%}%>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="<%=genModel.getGenerateCommandCategoryId()%>"
+            name="%_UI_GenerateCommandCategory_name"
+            description="%_UI_GenerateCommandCategory_description">
+      </category>
+<%for (GenPackage genPackage : genModel.getAllGenPackagesWithClassifiers()) {%>
+  <%if (genPackage instanceof GenPackage2 &&!genPackage.getGenClasses().isEmpty()) {%>
+      <command
+            categoryId="<%=genModel.getGenerateCommandCategoryId()%>"
+            id="<%=((GenPackage2)genPackage).getGenerateCommandId()%>"
+            name="%_UI_<%=genPackage.getPrefix()%>_GenerateCommand_name">
+         <commandParameter
+               id="<%=((GenPackage2)genPackage).getGenerateProjectTypesCommandParameterId()%>"
+               name="%_UI_<%=genPackage.getPrefix()%>_GenerateCommand_ProjectTypesParameter_name"
+               optional="false">
+         </commandParameter>
+      </command>
+  <%}%>
+<%}%>
+   </extension>
+<%for (GenPackage genPackage : genModel.getAllGenPackagesWithClassifiers()) {%>
+  <%if (genPackage instanceof GenPackage2 &&!genPackage.getGenClasses().isEmpty()) {%>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="<%=((GenPackage2)genPackage).getQualifiedGeneratorHandlerClassName()%>"
+            commandId="<%=((GenPackage2)genPackage).getGenerateCommandId()%>">
+      </handler>
+   </extension>   
+  <%}%>
+<%}%>
+<%for (GenPackage genPackage : genModel.getAllGenPackagesWithClassifiers()) {%>
+  <%if (genPackage instanceof GenPackage2 &&!genPackage.getGenClasses().isEmpty()) {%>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:<%=genPackage.getQualifiedEditorClassName()%>ID?before=additions">
+<%for (String projectType : genModel.getGeneratorProjectTypes()) {%>             
+         <command
+               commandId="<%=((GenPackage2)genPackage).getGenerateCommandId()%>"
+               icon="<%=((GenPackage2)genPackage).getGenerateIconRelativePath()%>"
+               label="Generate <%=genPackage.getPackageName()%> <%=projectType%>"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+					<reference
+						definitionId="<%=((GenPackage2)genPackage).getGeneratableModelElementsExpressionId()%>">
+					</reference>
+            </visibleWhen>
+            <parameter
+                  name="<%=((GenPackage2)genPackage).getGenerateProjectTypesCommandParameterId()%>"
+                  value="<%=((GenPackage2)genPackage).getQuallifiedGenerateProjectTypeId(projectType)%>">
+            </parameter> 
+         </command>
+<%}%>         
+      </menuContribution>
+   </extension>
+  <%}%>
+<%}%>
+</plugin>

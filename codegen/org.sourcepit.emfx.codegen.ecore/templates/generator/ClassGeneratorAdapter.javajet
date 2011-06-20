@@ -1,0 +1,75 @@
+<%@ jet package="org.sourcepit.emfx.codegen.ecore.templates.generator" class="ClassGeneratorAdapter" imports="org.eclipse.emf.codegen.ecore.genmodel.* org.sourcepit.emfx.codegen.ecore.genmodel2.*"%>
+<%
+/**
+ * <copyright>
+ *
+ * Copyright (c) 2002-2010 IBM Corporation and others.
+ * All rights reserved.   This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *   IBM - Initial API and implementation
+ *
+ * </copyright>
+ */
+%>
+<%GenClass2   genClass       = (GenClass2) argument;%>
+<%GenPackage2 genPackage     = genClass.getGenPackage();%>
+<%GenModel2   genModel       = genPackage.getGenModel();%>
+<%@ include file="../Header.javajetinc"%>
+package <%=genModel.getGeneratorPluginPackageName()%>;
+
+<%genModel.markImportLocation(stringBuffer);%>
+
+/**
+ * <!-- begin-user-doc -->
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public class <%=genClass.getGeneratorAdapterClassName()%> extends <%=genPackage.getGeneratorAdapterBaseClassName()%>
+{
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public <%=genClass.getGeneratorAdapterClassName()%>(<%=genModel.getImportedName("org.eclipse.emf.codegen.ecore.generator.GeneratorAdapterFactory")%> generatorAdapterFactory)
+	{
+		super(generatorAdapterFactory);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected JETEmitterDescriptor[] getJETEmitterDescriptors()
+	{
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean canGenerate(Object object, Object projectType)
+	{
+		throw new UnsupportedOperationException();
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected <%=genModel.getImportedName("org.eclipse.emf.common.util.Diagnostic")%> doGenerate(Object object, Object projectType,
+			<%=genModel.getImportedName("org.eclipse.emf.common.util.Monitor")%> monitor) throws Exception {
+		throw new UnsupportedOperationException();
+	}
+}
+<%genModel.emitSortedImports();%>

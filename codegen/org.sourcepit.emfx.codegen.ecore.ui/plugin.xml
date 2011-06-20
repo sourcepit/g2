@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http://genmodel2/1.0"
+            class="org.sourcepit.emfx.codegen.ecore.genmodel2.provider.GenModel2ItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="org.eclipse.emf.codegen.ecore.ui.Commands"
+            id="org.sourcepit.emfx.codegen.ecore.ui.commands.generateGeneratorCommand"
+            name="Generate Generator">
+         <commandParameter
+               id="org.sourcepit.emfx.codegen.ecore.ui.commands.parameter.projectTypes"
+               name="Generator Project Types"
+               optional="true">
+         </commandParameter>
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.sourcepit.emfx.codegen.ecore.ui.handlers.GenerateGeneratorHandler"
+            commandId="org.sourcepit.emfx.codegen.ecore.ui.commands.generateGeneratorCommand">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.emf.codegen.ecore.genmodel.presentation.GenModelEditorID?after=generate-actions">
+         <command
+               commandId="org.sourcepit.emfx.codegen.ecore.ui.commands.generateGeneratorCommand"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+               <iterate
+                     ifEmpty="false"
+                     operator="or">
+                  <instanceof
+                        value="org.sourcepit.emfx.codegen.ecore.genmodel2.GenBase2">
+                  </instanceof>
+               </iterate>
+            </visibleWhen>
+            <parameter
+                  name="org.sourcepit.emfx.codegen.ecore.ui.commands.parameter.projectTypes"
+                  value="Core">
+            </parameter>
+         </command>
+      </menuContribution>
+   </extension>
+</plugin>

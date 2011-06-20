@@ -1,0 +1,32 @@
+<%@ jet package="org.sourcepit.emfx.codegen.ecore.templates.generator.ui" imports="java.util.* org.eclipse.emf.codegen.ecore.genmodel.* org.sourcepit.emfx.codegen.ecore.genmodel2.*" class="PluginProperties" version="$Id: plugin.propertiesjet,v 1.21 2008/12/13 15:53:17 emerks Exp $" %>
+<%
+/**
+ * <copyright>
+ *
+ * Copyright (c) 2002-2006 IBM Corporation and others.
+ * All rights reserved.   This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors: 
+ *   IBM - Initial API and implementation
+ *
+ * </copyright>
+ */
+%>
+<%GenModel genModel = (GenModel)argument; /* Trick to import java.util.* without warnings */Iterator.class.getName();%>
+<%@ include file="../Header.propertiesjetinc"%>
+
+pluginName = <%=genModel.getModelName()%> Editor
+providerName = www.example.org
+
+_UI_GenerateCommandCategory_name = Generate Code
+_UI_GenerateCommandCategory_description = Generate code
+
+<%for (GenPackage genPackage : genModel.getAllGenAndUsedGenPackagesWithClassifiers()) {%>
+  <%if (genPackage.getGenModel() == genModel || !(genPackage.getGenModel() instanceof GenModel2 && ((GenModel2)genPackage.getGenModel()).hasGeneratorSupport())) {%>
+_UI_<%=genPackage.getPrefix()%>_GenerateCommand_name = Generate <%=genPackage.getPackageName()%>
+_UI_<%=genPackage.getPrefix()%>_GenerateCommand_ProjectTypesParameter_name = <%=genPackage.getPackageName()%> Project Types
+  <%}%>
+<%}%>
