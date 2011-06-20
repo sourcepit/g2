@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-
-	<modelVersion>4.0.0</modelVersion>
-
-	<parent>
-		<groupId>org.sourcepit.emfx.codegen</groupId>
-		<artifactId>org.sourcepit.emfx.codegen-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../org.sourcepit.emfx.codegen-parent</relativePath>
-	</parent>
-
-	<artifactId>org.sourcepit.emfx.importer.ecore</artifactId>
-	<packaging>eclipse-plugin</packaging>
-
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>org.sourcepit.emfx.codegen.plugins</artifactId>
+    <groupId>org.sourcepit.emfx</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>org.sourcepit.emfx.importer.ecore</artifactId>
+  <version>0.0.1.qualifier</version>
+  <packaging>eclipse-plugin</packaging>
 </project>
