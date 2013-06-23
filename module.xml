@@ -17,6 +17,12 @@
 	<properties>
 		<tycho.version>0.18.0</tycho.version>
 		<b2.version>0.1.0-alpha-9</b2.version>
+		<b2.facets.common.requiredFeatures>
+			org.eclipse.emf
+		</b2.facets.common.requiredFeatures>
+		<b2.assemblies.sdk.requiredFeatures>
+			org.eclipse.emf.sdk
+		</b2.assemblies.sdk.requiredFeatures>
 	</properties>
 
 	<repositories>
@@ -27,10 +33,9 @@
 		</repository>
 		<repository>
 			<id>juno</id>
-			<url>http://p2.sourcepit.org/eclipse/juno/</url>
+			<url>http://download.eclipse.org/releases/juno</url>
 			<layout>p2</layout>
 		</repository>
-
 	</repositories>
 
 	<pluginRepositories>
@@ -83,6 +88,15 @@
 				<version>${tycho.version}</version>
 				<configuration>
 					<resolver>p2</resolver>
+					<dependency-resolution>
+						<extraRequirements>
+							<requirement>
+								<id>org.eclipse.platform</id>
+								<versionRange>[4,5)</versionRange>
+								<type>eclipse-feature</type>
+							</requirement>
+						</extraRequirements>
+					</dependency-resolution>
 					<environments>
 						<environment>
 							<os>win32</os>
