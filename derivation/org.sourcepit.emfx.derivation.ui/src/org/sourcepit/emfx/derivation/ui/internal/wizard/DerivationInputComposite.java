@@ -182,7 +182,6 @@ public abstract class DerivationInputComposite extends Composite
       });
       btnAdd.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
       btnAdd.setText(Messages.DerivationInputComposite_btnAdd_text);
-      sashForm.setWeights(new int[] {180, 133});
 
       final ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(
          ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
@@ -383,6 +382,7 @@ public abstract class DerivationInputComposite extends Composite
             return false;
          }
       });
+      sashForm.setWeights(new int[] {189, 108});
 
       changedEventRunner = new ReducingAsyncRunner(this, new Runnable()
       {
