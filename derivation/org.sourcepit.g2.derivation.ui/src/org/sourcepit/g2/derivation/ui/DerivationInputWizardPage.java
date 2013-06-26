@@ -153,10 +153,7 @@ public class DerivationInputWizardPage extends WizardPage
          };
       };
 
-      final List<IResource> resources = openWorkspaceSelectionDialog(getShell(), title, emptyListMesage, selection,
-         validator);
-      
-      
+      openWorkspaceSelectionDialog(getShell(), title, emptyListMesage, selection, validator);
    }
 
    private void onAddDerivative()

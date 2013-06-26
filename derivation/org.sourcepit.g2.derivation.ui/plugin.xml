@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.eclipse.emf.codegen.ecore.ui.wizardCategory"
+            class="org.sourcepit.g2.derivation.ui.NewEcoreDerivativeWizard"
+            hasPages="true"
+            icon="icons/full/ctool16/NewEcore.gif"
+            id="org.sourcepit.g2.derivation.ui.NewEcoreDerivativeWizard"
+            name="Ecore Model Derivative">
+      </wizard>
+   </extension>
+
+</plugin>

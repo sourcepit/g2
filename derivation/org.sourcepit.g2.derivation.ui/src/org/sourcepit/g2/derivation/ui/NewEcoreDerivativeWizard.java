@@ -15,13 +15,13 @@ import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
-public class NewDerivationWizard extends Wizard implements INewWizard, IPageChangedListener
+public class NewEcoreDerivativeWizard extends Wizard implements INewWizard, IPageChangedListener
 {
 
    private WizardNewFileCreationPage filePage;
    private DerivationInputWizardPage inputPage;
 
-   public NewDerivationWizard()
+   public NewEcoreDerivativeWizard()
    {
       setWindowTitle("New Wizard");
    }
