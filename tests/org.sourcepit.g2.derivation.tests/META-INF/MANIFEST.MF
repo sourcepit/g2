@@ -6,4 +6,5 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Sourcepit.org
 Fragment-Host: org.sourcepit.g2.derivation
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Require-Bundle: org.junit;bundle-version="4.10.0"
+Require-Bundle: org.junit;bundle-version="4.10.0",
+ org.eclipse.emf.ecore.xmi;bundle-version="2.8.0"

@@ -45,15 +45,15 @@
 		</pluginRepository>
 	</pluginRepositories>
 
+	<dependencies>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>14.0.1</version>
+		</dependency>
+	</dependencies>
 
 	<build>
-		<extensions>
-			<extension>
-				<groupId>org.sourcepit.b2</groupId>
-				<artifactId>b2-maven-plugin</artifactId>
-				<version>${b2.version}</version>
-			</extension>
-		</extensions>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -121,6 +121,22 @@
 					</environments>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.sourcepit.b2</groupId>
+				<artifactId>b2-maven-plugin</artifactId>
+				<version>${b2.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<extensions>
+						<extension>
+							<groupId>org.sourcepit.b2</groupId>
+							<artifactId>b2-maven-dependencies-site-generator</artifactId>
+							<version>${b2.version}</version>
+						</extension>
+					</extensions>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 

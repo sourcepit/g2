@@ -9,10 +9,12 @@ package org.sourcepit.g2.derivation.tests;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
+import org.sourcepit.g2.derivation.ResourceDiagnosticsObserverTest;
+import org.sourcepit.g2.derivation.ResourceStatusRecorderTest;
 import org.sourcepit.g2.derivation.ResourceUtilsTest;
 
 @RunWith(Suite.class)
-@SuiteClasses({ ResourceUtilsTest.class })
+@SuiteClasses({ ResourceUtilsTest.class, ResourceStatusRecorderTest.class, ResourceDiagnosticsObserverTest.class })
 public class AllContinuousTests
 {
 
